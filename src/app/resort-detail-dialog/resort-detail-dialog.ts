@@ -7,6 +7,7 @@ export interface ResortDetail {
   location: string;
   description: string;
   image: string;
+  url: string;
 }
 
 @Component({
@@ -24,8 +25,14 @@ export class ResortDetailDialogComponent {
   closeDialog(): void {
     this.dialogRef.close();
   }
+  openOfficialSite(url?: string) {
+  if (url) {
+    window.open(url, '_blank');
+  }
+}
+
 
   onImageError(event: any) {
-    event.target.src = 'https://via.placeholder.com/500x200/cccccc/666666?text=滑雪场图片';
+    // event.target.src = 'https://www.nekoma.co.jp/wp-content/uploads/icp_post_image/18000759439836207/18030971039756635';
   }
 }
