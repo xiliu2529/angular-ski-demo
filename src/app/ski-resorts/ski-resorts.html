@@ -1,0 +1,40 @@
+<div class="resort-list">
+  @for (resort of skiResorts; track resort.id) {
+    <div class="resort-card">
+      <img 
+        [src]="resort.image" 
+        [alt]="resort.name"
+        class="resort-image"
+      />
+
+      <div class="resort-content">
+        <h2 class="resort-name">{{ resort.name }}</h2>
+        <p class="resort-location">{{ resort.location }}</p>
+        <p class="resort-description">
+          {{ resort.description }}
+        </p>
+
+     <button 
+  class="detail-btn"
+  (click)="openDetail(resort)"
+>
+  查看详情
+</button>
+      </div>
+    </div>
+  }
+</div>
+
+@if (isModalOpen && selectedResort) {
+  <!-- 遮罩层 -->
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+
+  <!-- 中间浮动窗口 -->
+  <div class="modal">
+    <h2>{{ selectedResort.name }}</h2>
+    <p>{{ selectedResort.location }}</p>
+    <p>{{ selectedResort.description }}</p>
+
+    <button (click)="closeModal()">关闭</button>
+  </div>
+}

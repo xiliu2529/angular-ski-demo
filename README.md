@@ -1,59 +1,67 @@
 # MyAngularApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+本项目使用 [Angular CLI](https://github.com/angular/angular-cli) **21.0.3 版本**生成。
 
-## Development server
+## 开发服务器（Development server）
 
-To start a local development server, run:
+启动本地开发服务器，运行：
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+服务器启动后，在浏览器中访问：
 
-## Code scaffolding
+http://localhost:4200/
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+当你修改任何源代码文件时，应用会自动重新加载。
+
+## 代码脚手架（Code scaffolding）
+
+Angular CLI 提供了强大的代码脚手架工具。  
+要生成一个新的组件，运行：
 
 ```bash
 ng generate component component-name
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+如果你想查看所有可用的脚手架（例如 `components`、`directives`、`pipes` 等），可以运行：
 
 ```bash
 ng generate --help
 ```
 
-## Building
+## 构建项目（Building）
 
-To build the project run:
+要构建项目，运行：
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+构建完成后，生成的文件会存放在 `dist/` 目录中。  
+默认情况下，生产环境构建会对应用进行性能和速度优化。
 
-## Running unit tests
+## 运行单元测试（Running unit tests）
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+使用 [Vitest](https://vitest.dev/) 作为测试运行器来执行单元测试：
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## 运行端到端测试（Running end-to-end tests）
 
-For end-to-end (e2e) testing, run:
+运行端到端（e2e）测试：
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Angular CLI 默认不包含端到端测试框架，你可以根据项目需求自行选择合适的工具。
 
-## Additional Resources
+## 其他资源（Additional Resources）
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+想了解更多关于 Angular CLI 的使用方法（包括详细的命令说明），请访问：
+
+https://angular.dev/tools/cli
