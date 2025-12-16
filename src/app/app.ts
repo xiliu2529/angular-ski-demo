@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('スキー場予約システム');
+  protected readonly title = signal('スキー場情報サイト');
   
   // 导航菜单项
   navItems = [

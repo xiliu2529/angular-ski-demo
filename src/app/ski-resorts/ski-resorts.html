@@ -1,40 +1,35 @@
-<div class="resort-list">
+<!-- 页面标题区域 -->
+<header class="page-header">
+  <h1>日本滑雪场推荐</h1>
+  <p>发现日本最优质的滑雪胜地，享受完美的滑雪体验</p>
+</header>
+
+<!-- 滑雪场列表 -->
+<main class="resort-list">
   @for (resort of skiResorts; track resort.id) {
-    <div class="resort-card">
-      <img 
+    <article class="resort-card">
+      <!-- <img 
         [src]="resort.image" 
         [alt]="resort.name"
         class="resort-image"
-      />
+        (error)="onImageError($event)"
+        loading="lazy"
+      /> -->
 
-      <div class="resort-content">
+      <section class="resort-content">
         <h2 class="resort-name">{{ resort.name }}</h2>
-        <p class="resort-location">{{ resort.location }}</p>
+        <div class="resort-location">📍 {{ resort.location }}</div>
         <p class="resort-description">
           {{ resort.description }}
         </p>
 
-     <button 
-  class="detail-btn"
-  (click)="openDetail(resort)"
->
-  查看详情
-</button>
-      </div>
-    </div>
+        <button 
+          class="detail-btn"
+          (click)="openDetail(resort)"
+        >
+          查看详情
+        </button>
+      </section>
+    </article>
   }
-</div>
-
-@if (isModalOpen && selectedResort) {
-  <!-- 遮罩层 -->
-  <div class="modal-backdrop" (click)="closeModal()"></div>
-
-  <!-- 中间浮动窗口 -->
-  <div class="modal">
-    <h2>{{ selectedResort.name }}</h2>
-    <p>{{ selectedResort.location }}</p>
-    <p>{{ selectedResort.description }}</p>
-
-    <button (click)="closeModal()">关闭</button>
-  </div>
-}
+</main>

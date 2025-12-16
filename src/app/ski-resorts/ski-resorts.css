@@ -1,57 +1,178 @@
-.resort-list {
+/* 页面标题设计 - 完全静态 */
+.page-header {
+  text-align: center;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-bottom: 0;
+  /* 固定高度，彻底避免跳动 */
+  height: 140px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
+.page-header h1 {
+  margin: 0 0 12px 0;
+  font-size: 28px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 
+.page-header p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
 
+/* 容器设计 - 零动画设计 */
+.resort-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* 完全静态容器 */
+}
 
+/* 卡片设计 - 绝对零动画 */
 .resort-card {
-    width: 350px;
+  width: 100%;
   background: #fff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  /* 完全移除所有transition和transform */
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* hover效果 - 最小化变化 */
 .resort-card:hover {
-  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* 图片设计 - 完全静态 */
 .resort-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
+  /* 完全移除动画 */
 }
 
+.resort-card:hover .resort-image {
+  /* 保持完全静态 */
+}
+
+/* 内容区域设计 - 固定高度布局 */
 .resort-content {
-  padding: 12px;
+  padding: 20px;
+  background: white;
 }
 
 .resort-name {
-  margin: 0;
-  font-size: 18px;
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.3;
 }
 
 .resort-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: #666;
   font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  padding: 4px 10px;
+  background: #f8f9fa;
+  border-radius: 20px;
 }
 
 .resort-description {
-  margin: 8px 0;
-  font-size: 14px;
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+  /* 限制行数，保持高度一致 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+/* 按钮设计 - 完全静态 */
 .detail-btn {
-  margin-top: 8px;
-  padding: 6px 12px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 16px;
   border: none;
   background: #1976d2;
   color: white;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  /* 完全移除所有动画 */
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.2);
+}
+
+.detail-btn:hover {
+  background: #1565c0;
+}
+
+.detail-btn:active {
+  /* 保持简单 */
+}
+
+/* 响应式设计 - 稳定的布局变化 */
+@media (max-width: 768px) {
+  .resort-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .resort-image {
+    height: 180px;
+  }
+  
+  .resort-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resort-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+/* 强制滚动条稳定化 */
+:root {
+  overflow-y: scroll;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  overflow-y: scroll !important;
+  min-height: 100vh;
+}
+
+/* 确保页面高度固定 */
+app-ski-resorts {
+  display: block;
+  min-height: 100vh;
+  overflow: hidden;
 }
