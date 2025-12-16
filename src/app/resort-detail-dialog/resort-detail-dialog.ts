@@ -36,10 +36,5 @@ export class ResortDetailDialogComponent {
 }
 
 
-  onImageError(event: any) {
-    // 图片加载失败时使用默认图片
-    if (event && event.target) {
-      event.target.src = 'https://via.placeholder.com/350x220/cccccc/666666?text=滑雪场图片';
-    }
-  }
+
 }
