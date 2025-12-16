@@ -20,17 +20,22 @@
     <div class="dialog-details">
       <div class="detail-item">
         <h3>雪场特色</h3>
-        <p>优质雪道，适合各种水平的滑雪爱好者</p>
+        <p>{{ data.features || '优质雪道，适合各种水平的滑雪爱好者' }}</p>
       </div>
       
       <div class="detail-item">
         <h3>最佳季节</h3>
-        <p>12月 - 3月，雪质最佳时期</p>
+        <p>{{ data.season || '12月 - 3月，雪质最佳时期' }}</p>
       </div>
       
       <div class="detail-item">
         <h3>交通方式</h3>
-        <p>建议自驾或乘坐公共交通前往</p>
+        <p>{{ data.transportation || '建议自驾或乘坐公共交通前往' }}</p>
+      </div>
+      
+      <div class="detail-item">
+        <h3>难度等级</h3>
+        <p>{{ data.difficulty || '初级 30% | 中级 50% | 高级 20%' }}</p>
       </div>
     </div>
   </div>

@@ -8,6 +8,10 @@ export interface ResortDetail {
   description: string;
   image: string;
   url: string;
+  features?: string;
+  season?: string;
+  transportation?: string;
+  difficulty?: string;
 }
 
 @Component({
@@ -33,6 +37,9 @@ export class ResortDetailDialogComponent {
 
 
   onImageError(event: any) {
-    // event.target.src = 'https://www.nekoma.co.jp/wp-content/uploads/icp_post_image/18000759439836207/18030971039756635';
+    // 图片加载失败时使用默认图片
+    if (event && event.target) {
+      event.target.src = 'https://via.placeholder.com/350x220/cccccc/666666?text=滑雪场图片';
+    }
   }
 }

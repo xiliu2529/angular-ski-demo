@@ -30,3 +30,48 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+/* 确保对话框正确居中和填充 */
+.resort-detail-dialog .mat-mdc-dialog-container {
+  padding: 0 !important;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* 对话框背景面板 */
+.resort-detail-dialog .mat-mdc-dialog-surface {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* 确保对话框在各种屏幕尺寸下都能正确显示 */
+@media (min-width: 1200px) {
+  .resort-detail-dialog .mat-mdc-dialog-container {
+    max-width: 900px !important;
+    width: 900px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .resort-detail-dialog .mat-mdc-dialog-container {
+    max-width: 800px !important;
+    width: 80vw !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .resort-detail-dialog .mat-mdc-dialog-container {
+    margin: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+    width: calc(100vw - 32px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .resort-detail-dialog .mat-mdc-dialog-container {
+    margin: 8px !important;
+    max-width: calc(100vw - 16px) !important;
+    width: calc(100vw - 16px) !important;
+    border-radius: 12px;
+  }
+}
