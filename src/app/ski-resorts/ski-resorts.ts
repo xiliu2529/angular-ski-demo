@@ -151,6 +151,13 @@ onImageError(event: any) {
     difficulty: '初级 30% | 中级 45% | 高级 25%'
   }
 ];
+onLocationClick(name: string) {
+      const url = `https://www.google.com/maps/search/?api=1&query=${name}`;
+
+    // 打开新标签页显示 Google 地图
+    window.open(url, '_blank');
+}
+
 
 
 

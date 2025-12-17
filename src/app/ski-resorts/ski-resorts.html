@@ -18,7 +18,7 @@
 
       <section class="resort-content">
         <h2 class="resort-name">{{ resort.name }}</h2>
-        <div class="resort-location">📍 {{ resort.location }}</div>
+         <button class="resort-location" (click)="onLocationClick(resort.name)">📍 {{ resort.location }}</button>
         <p class="resort-description">
           {{ resort.description }}
         </p>

@@ -5,6 +5,6 @@ import { SkiResorts } from './ski-resorts/ski-resorts';
 
 export const routes: Routes = [
   { path: 'ski-resorts', component: SkiResorts },
-//   { path: 'child-list', component: ChildList },
+  { path: 'child-list', component: ChildList },
 //   { path: 'item-detail/:id', component: ItemDetail }
 ];

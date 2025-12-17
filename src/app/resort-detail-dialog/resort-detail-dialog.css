@@ -3,7 +3,7 @@
   background: white;
   border-radius: 16px;
   overflow: hidden;
-  width: 100%;
+  width: 110%;
   max-width: 100%;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   margin: 0 auto;
@@ -71,7 +71,10 @@
   gap: 6px;
   color: #666;
   font-size: 14px;
+  cursor: pointer; 
+  transition: transform 0.1s, background-color 0.1s; /* 平滑过渡 */
 }
+
 
 .dialog-description {
   margin: 0 0 24px 0;

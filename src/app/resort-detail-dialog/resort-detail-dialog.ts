@@ -34,6 +34,12 @@ export class ResortDetailDialogComponent {
     window.open(url, '_blank');
   }
 }
+onLocationClick(name: string) {
+      const url = `https://www.google.com/maps/search/?api=1&query=${name}`;
+
+    // 打开新标签页显示 Google 地图
+    window.open(url, '_blank');
+}
 
 
 

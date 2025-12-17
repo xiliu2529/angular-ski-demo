@@ -11,7 +11,7 @@
   <div class="dialog-content">
     <h2 class="dialog-title">{{ data.name }}</h2>
     <div class="dialog-meta">
-      <span class="location">📍 {{ data.location }}</span>
+      <button class="location" (click)="onLocationClick(data.name)">📍 {{ data.location }}</button>
     </div>
     
     <p class="dialog-description">{{ data.description }}</p>
