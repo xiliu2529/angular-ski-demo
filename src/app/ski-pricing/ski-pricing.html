@@ -1,0 +1,141 @@
+<!-- 页面标题 -->
+<header class="pricing-header">
+  <h1>雪场票价表</h1>
+  <p>选择您需要的滑雪票券，享受优惠价格</p>
+</header>
+
+<!-- 价格表格 -->
+<main class="pricing-container">
+  <div class="table-wrapper">
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th class="select-col">选择</th>
+          <th class="resort-col">雪场</th>
+          <th class="ticket-col">票种</th>
+          <th class="duration-col">时长</th>
+          <th class="price-col">价格</th>
+          <th class="discount-col">折扣</th>
+          <th class="period-col">有效期</th>
+          <th class="features-col">特色</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of priceData; track item.id) {
+          <tr class="price-row" [class.selected]="isSelected(item.id)">
+            <td class="select-col">
+              <input 
+                type="checkbox" 
+                [checked]="isSelected(item.id)"
+                (change)="toggleSelection(item)"
+                class="select-checkbox"
+              />
+            </td>
+            <td class="resort-col">
+              <div class="resort-name">{{ item.resortName }}</div>
+            </td>
+            <td class="ticket-col">
+              <div class="ticket-type">{{ item.ticketType }}</div>
+            </td>
+            <td class="duration-col">
+              <span class="duration">{{ item.duration }}</span>
+            </td>
+            <td class="price-col">
+              <div class="price-info">
+                <div class="current-price">{{ formatPrice(item.price) }}</div>
+                <div class="original-price">{{ formatPrice(item.originalPrice) }}</div>
+              </div>
+            </td>
+            <td class="discount-col">
+              <span class="discount-badge">{{ item.discount }}% OFF</span>
+            </td>
+            <td class="period-col">
+              <div class="valid-period">{{ item.validPeriod }}</div>
+            </td>
+            <td class="features-col">
+              <div class="features-list">
+                @for (feature of item.features; track $index) {
+                  <span class="feature-tag">{{ feature }}</span>
+                }
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 购物车区域 -->
+  @if (selectedItems.length > 0) {
+    <section class="cart-section">
+      <h2>已选择的票券</h2>
+      <div class="cart-items">
+        @for (purchase of selectedItems; track purchase.item.id) {
+          <div class="cart-item">
+            <div class="item-info">
+              <h4>{{ purchase.item.resortName }} - {{ purchase.item.ticketType }}</h4>
+              <p>{{ purchase.item.duration }}</p>
+            </div>
+            <div class="item-controls">
+              <div class="quantity-control">
+                <button (click)="updateQuantity(purchase.item.id, purchase.quantity - 1)" 
+                        [disabled]="purchase.quantity <= 1">-</button>
+                <input type="number" [value]="purchase.quantity" 
+                       (input)="updateQuantity(purchase.item.id, $any($event.target).value)"
+                       min="1" max="10" readonly>
+                <button (click)="updateQuantity(purchase.item.id, purchase.quantity + 1)">+</button>
+              </div>
+              <div class="item-total">{{ formatPrice(purchase.item.price * purchase.quantity) }}</div>
+              <button class="remove-btn" (click)="removeItem(purchase.item.id)">删除</button>
+            </div>
+          </div>
+        }
+      </div>
+      
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>原价总计:</span>
+          <span class="original-total">{{ formatPrice(getTotalOriginalPrice()) }}</span>
+        </div>
+        <div class="summary-row savings">
+          <span>节省金额:</span>
+          <span class="savings-amount">-{{ formatPrice(getTotalSavings()) }}</span>
+        </div>
+        <div class="summary-row total">
+          <span>实付金额:</span>
+          <span class="total-amount">{{ formatPrice(getTotalPrice()) }}</span>
+        </div>
+      </div>
+      
+      <div class="cart-actions">
+        <button class="checkout-btn" (click)="proceedToCheckout()">
+          立即购买 ({{ selectedItems.length }}项)
+        </button>
+      </div>
+    </section>
+  }
+
+  <!-- 结算界面 -->
+  @if (isCheckoutVisible) {
+    <div class="checkout-modal">
+      <div class="checkout-content">
+        <h3>确认订单</h3>
+        <div class="order-summary">
+          @for (purchase of selectedItems; track purchase.item.id) {
+            <div class="order-item">
+              <span>{{ purchase.item.resortName }} - {{ purchase.item.ticketType}} x {{ purchase.quantity }}</span>
+              <span>{{ formatPrice(purchase.item.price * purchase.quantity) }}</span>
+            </div>
+          }
+          <div class="order-total">
+            <strong>总计: {{ formatPrice(getTotalPrice()) }}</strong>
+          </div>
+        </div>
+        <div class="checkout-actions">
+          <button class="cancel-btn" (click)="proceedToCheckout()">取消</button>
+          <button class="confirm-btn" (click)="confirmPurchase()">确认购买</button>
+        </div>
+      </div>
+    </div>
+  }
+</main>

@@ -15,7 +15,7 @@ export class App {
   // 导航菜单项
   navItems = [
     {   path: '/ski-resorts', label: 'スキー場一覧', description: '各スキー場の情報' },
-    { path: '/pricing', label: '料金表', description: '各スキー場の料金表' },
+    { path: '/ski-pricing', label: '料金表', description: '各スキー場の料金表' },
     { path: '/item-detail/1', label: '详情页示例', description: '路由参数传递' }
   ];
   
