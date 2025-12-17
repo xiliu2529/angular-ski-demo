@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { OrderService, Order } from '../order';
 
 interface PriceItem {
   id: number;
@@ -26,6 +27,8 @@ interface PurchaseItem {
   styleUrl: './ski-pricing.css',
 })
 export class SkiPricing {
+  constructor(private orderService: OrderService) {}
+
   priceData: PriceItem[] = [
     {
       id: 1,
@@ -202,7 +205,10 @@ export class SkiPricing {
     const savings = `节省: ¥${this.getTotalSavings()}`;
     
     if (confirm(`确认购买以下票券？\n\n${purchaseDetails}\n\n${total}\n${savings}`)) {
-      alert('购买成功！感谢您的订购，祝您滑雪愉快！');
+      // 创建订单
+      const orderId = this.orderService.createOrder(this.selectedItems);
+      
+      alert(`购买成功！订单号：${orderId}\n感谢您的订购，祝您滑雪愉快！`);
       this.selectedItems = [];
       this.isCheckoutVisible = false;
     }

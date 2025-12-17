@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('スキー場情報サイト');
+  protected readonly title = signal('スキー場予約システム');
   
   // 导航菜单项
   navItems = [
     {   path: '/ski-resorts', label: 'スキー場一覧', description: '各スキー場の情報' },
     { path: '/ski-pricing', label: '料金表', description: '各スキー場の料金表' },
-    { path: '/item-detail/1', label: '详情页示例', description: '路由参数传递' }
+    { path: '/order-history', label: '注文履歴', description: '購入履歴の確認' }
   ];
   
   currentYear = new Date().getFullYear();
