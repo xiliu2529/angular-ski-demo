@@ -3,18 +3,38 @@
   <!-- 顶部导航栏 -->
   <header class="app-header">
     <div class="header-content">
-      <h1 class="app-title">{{ title() }}</h1>
+      <div class="header-top">
+        <h1 class="app-title">{{ 'app.title' | translate }}</h1>
+        <app-language-selector></app-language-selector>
+      </div>
       
       <nav class="main-nav">
         <ul class="nav-list">
           <li 
-            *ngFor="let navItem of navItems" 
             class="nav-item"
-            (click)="navigateTo(navItem.path)"
+            (click)="navigateTo('/ski-resorts')"
           >
             <div class="nav-content">
-              <span class="nav-label">{{ navItem.label }}</span>
-              <span class="nav-description">{{ navItem.description }}</span>
+              <span class="nav-label">{{ 'navigation.resorts.label' | translate }}</span>
+              <span class="nav-description">{{ 'navigation.resorts.description' | translate }}</span>
+            </div>
+          </li>
+          <li 
+            class="nav-item"
+            (click)="navigateTo('/ski-pricing')"
+          >
+            <div class="nav-content">
+              <span class="nav-label">{{ 'navigation.pricing.label' | translate }}</span>
+              <span class="nav-description">{{ 'navigation.pricing.description' | translate }}</span>
+            </div>
+          </li>
+          <li 
+            class="nav-item"
+            (click)="navigateTo('/order-history')"
+          >
+            <div class="nav-content">
+              <span class="nav-label">{{ 'navigation.history.label' | translate }}</span>
+              <span class="nav-description">{{ 'navigation.history.description' | translate }}</span>
             </div>
           </li>
         </ul>
@@ -30,8 +50,8 @@
   <!-- 页脚信息 -->
   <footer class="app-footer">
     <div class="footer-content">
-      <p>&copy; {{ currentYear }} スキー場予約システム</p>
-      <p>日本のスキー場情報・料金表・予約管理プラットフォーム</p>
+      <p>{{ 'app.footer.copyright' | translate: {year: currentYear.toString()} }}</p>
+      <p>{{ 'app.footer.description' | translate }}</p>
     </div>
   </footer>
 </div>
@@ -60,7 +80,6 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    
   }
 
   .header-content {
@@ -69,8 +88,16 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
  .app-title {
@@ -168,8 +195,14 @@ margin-bottom: 10px;
       padding: 15px;
     }
     
+    .header-top {
+      flex-direction: column;
+      text-align: center;
+    }
+    
     .app-title {
       font-size: 2rem;
+      margin-bottom: 10px;
     }
     
     .nav-list {

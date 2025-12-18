@@ -1,7 +1,7 @@
 <!-- 页面标题 -->
 <header class="order-history-header">
-  <h1>订单历史</h1>
-  <p>查看您的滑雪票购买记录</p>
+  <h1>{{ 'orderHistory.title' | translate }}</h1>
+  <p>{{ 'orderHistory.subtitle' | translate }}</p>
 </header>
 
 <!-- 统计信息 -->
@@ -9,15 +9,15 @@
   <div class="stats-cards">
     <div class="stat-card">
       <div class="stat-number">{{ getTotalOrders() }}</div>
-      <div class="stat-label">总订单数</div>
+      <div class="stat-label">{{ 'orderHistory.stats.totalOrders' | translate }}</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">{{ formatPrice(getTotalSpent()) }}</div>
-      <div class="stat-label">总消费金额</div>
+      <div class="stat-label">{{ 'orderHistory.stats.totalSpent' | translate }}</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">{{ formatPrice(getTotalSavings()) }}</div>
-      <div class="stat-label">总节省金额</div>
+      <div class="stat-label">{{ 'orderHistory.stats.totalSavings' | translate }}</div>
     </div>
   </div>
 </section>
@@ -27,9 +27,9 @@
   @if (orders.length === 0) {
     <div class="empty-state">
       <div class="empty-icon">📋</div>
-      <h3>暂无订单记录</h3>
-      <p>您还没有购买任何滑雪票券</p>
-      <button class="go-shopping-btn" (click)="navigateToPricing()">去购买</button>
+      <h3>{{ 'orderHistory.empty.title' | translate }}</h3>
+      <p>{{ 'orderHistory.empty.subtitle' | translate }}</p>
+      <button class="go-shopping-btn" (click)="navigateToPricing()">{{ 'orderHistory.empty.goShopping' | translate }}</button>
     </div>
   } @else {
     <div class="orders-list">
@@ -37,7 +37,7 @@
         <div class="order-card">
           <div class="order-header" (click)="toggleOrder(order.id)">
             <div class="order-info">
-              <div class="order-id">订单号：{{ order.id }}</div>
+              <div class="order-id">{{ 'orderHistory.order.id' | translate }}{{ order.id }}</div>
               <div class="order-date">{{ formatDate(order.orderDate) }}</div>
             </div>
             <div class="order-summary">
@@ -68,7 +68,7 @@
                       </div>
                     </div>
                     <div class="item-pricing">
-                      <div class="item-quantity">数量：{{ item.quantity }}</div>
+                      <div class="item-quantity">{{ 'orderHistory.order.quantity' | translate }}{{ item.quantity }}</div>
                       <div class="item-total">{{ formatPrice(item.price * item.quantity) }}</div>
                     </div>
                   </div>
@@ -77,21 +77,21 @@
 
               <div class="order-summary-details">
                 <div class="summary-row">
-                  <span>原价总计：</span>
+                  <span>{{ 'orderHistory.order.originalTotal' | translate }}</span>
                   <span class="original-price">{{ formatPrice(order.totalOriginalAmount) }}</span>
                 </div>
                 <div class="summary-row savings">
-                  <span>节省金额：</span>
+                  <span>{{ 'orderHistory.order.savings' | translate }}</span>
                   <span class="savings-amount">-{{ formatPrice(order.totalSavings) }}</span>
                 </div>
                 <div class="summary-row total">
-                  <span>实付金额：</span>
+                  <span>{{ 'orderHistory.order.total' | translate }}</span>
                   <span class="total-amount">{{ formatPrice(order.totalAmount) }}</span>
                 </div>
               </div>
 
               <div class="order-actions">
-                <button class="delete-btn" (click)="deleteOrder(order.id)">删除订单</button>
+                <button class="delete-btn" (click)="deleteOrder(order.id)">{{ 'orderHistory.order.delete' | translate }}</button>
               </div>
             </div>
           }

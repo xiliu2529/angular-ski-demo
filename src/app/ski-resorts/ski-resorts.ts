@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ResortDetailDialogComponent } from '../resort-detail-dialog/resort-detail-dialog';
+import { TranslatePipe } from '../pipes/translate.pipe';
 
 
 @Component({
   selector: 'app-ski-resorts',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './ski-resorts.html',
   styleUrl: './ski-resorts.css',
 })

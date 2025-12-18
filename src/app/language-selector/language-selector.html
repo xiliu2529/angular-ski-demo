@@ -1,0 +1,31 @@
+<div class="language-selector" (clickOutside)="closeDropdown()">
+  <button 
+    class="language-button"
+    (click)="toggleDropdown()"
+    [attr.aria-expanded]="isOpen()"
+    aria-haspopup="true"
+    [title]="'language.select' | translate"
+  >
+    <span class="current-language">{{ getCurrentLanguageDisplay() }}</span>
+    <span class="dropdown-arrow" [class.open]="isOpen()">▼</span>
+  </button>
+
+  @if (isOpen()) {
+    <ul class="language-dropdown" role="menu">
+      @for (lang of languages; track lang.code) {
+        <li 
+          class="language-option"
+          [class.active]="lang.code === currentLanguage()"
+          (click)="selectLanguage(lang.code)"
+          role="menuitem"
+        >
+          <span class="flag">{{ lang.flag }}</span>
+          <span class="name">{{ lang.name }}</span>
+          @if (lang.code === currentLanguage()) {
+            <span class="check">✓</span>
+          }
+        </li>
+      }
+    </ul>
+  }
+</div>

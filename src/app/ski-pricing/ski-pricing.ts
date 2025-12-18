@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderService, Order } from '../order';
+import { TranslatePipe } from '../pipes/translate.pipe';
 
 interface PriceItem {
   id: number;
@@ -22,7 +23,7 @@ interface PurchaseItem {
 
 @Component({
   selector: 'app-ski-pricing',
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './ski-pricing.html',
   styleUrl: './ski-pricing.css',
 })

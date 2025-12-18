@@ -1,7 +1,7 @@
 <!-- 页面标题区域 -->
 <header class="page-header">
-  <h1>日本滑雪场推荐</h1>
-  <p>发现日本最优质的滑雪胜地，享受完美的滑雪体验</p>
+  <h1>{{ 'resorts.title' | translate }}</h1>
+  <p>{{ 'resorts.subtitle' | translate }}</p>
 </header>
 
 <!-- 滑雪场列表 -->
@@ -18,7 +18,7 @@
 
       <section class="resort-content">
         <h2 class="resort-name">{{ resort.name }}</h2>
-         <button class="resort-location" (click)="onLocationClick(resort.name)">📍 {{ resort.location }}</button>
+         <button class="resort-location" (click)="onLocationClick(resort.name)">{{ 'resorts.location' | translate }} {{ resort.location }}</button>
         <p class="resort-description">
           {{ resort.description }}
         </p>
@@ -27,7 +27,7 @@
           class="detail-btn"
           (click)="openDetail(resort)"
         >
-          查看详情
+          {{ 'resorts.viewDetails' | translate }}
         </button>
       </section>
     </article>

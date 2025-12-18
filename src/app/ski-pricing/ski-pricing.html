@@ -1,7 +1,7 @@
 <!-- 页面标题 -->
 <header class="pricing-header">
-  <h1>雪场票价表</h1>
-  <p>选择您需要的滑雪票券，享受优惠价格</p>
+  <h1>{{ 'pricing.title' | translate }}</h1>
+  <p>{{ 'pricing.subtitle' | translate }}</p>
 </header>
 
 <!-- 价格表格 -->
@@ -10,14 +10,14 @@
     <table class="pricing-table">
       <thead>
         <tr>
-          <th class="select-col">选择</th>
-          <th class="resort-col">雪场</th>
-          <th class="ticket-col">票种</th>
-          <th class="duration-col">时长</th>
-          <th class="price-col">价格</th>
-          <th class="discount-col">折扣</th>
-          <th class="period-col">有效期</th>
-          <th class="features-col">特色</th>
+          <th class="select-col">{{ 'pricing.headers.select' | translate }}</th>
+          <th class="resort-col">{{ 'pricing.headers.resort' | translate }}</th>
+          <th class="ticket-col">{{ 'pricing.headers.ticket' | translate }}</th>
+          <th class="duration-col">{{ 'pricing.headers.duration' | translate }}</th>
+          <th class="price-col">{{ 'pricing.headers.price' | translate }}</th>
+          <th class="discount-col">{{ 'pricing.headers.discount' | translate }}</th>
+          <th class="period-col">{{ 'pricing.headers.period' | translate }}</th>
+          <th class="features-col">{{ 'pricing.headers.features' | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -68,7 +68,7 @@
   <!-- 购物车区域 -->
   @if (selectedItems.length > 0) {
     <section class="cart-section">
-      <h2>已选择的票券</h2>
+      <h2>{{ 'pricing.cart.title' | translate }}</h2>
       <div class="cart-items">
         @for (purchase of selectedItems; track purchase.item.id) {
           <div class="cart-item">
@@ -86,7 +86,7 @@
                 <button (click)="updateQuantity(purchase.item.id, purchase.quantity + 1)">+</button>
               </div>
               <div class="item-total">{{ formatPrice(purchase.item.price * purchase.quantity) }}</div>
-              <button class="remove-btn" (click)="removeItem(purchase.item.id)">删除</button>
+              <button class="remove-btn" (click)="removeItem(purchase.item.id)">{{ 'pricing.cart.delete' | translate }}</button>
             </div>
           </div>
         }
@@ -94,22 +94,22 @@
       
       <div class="cart-summary">
         <div class="summary-row">
-          <span>原价总计:</span>
+          <span>{{ 'pricing.cart.originalTotal' | translate }}</span>
           <span class="original-total">{{ formatPrice(getTotalOriginalPrice()) }}</span>
         </div>
         <div class="summary-row savings">
-          <span>节省金额:</span>
+          <span>{{ 'pricing.cart.savings' | translate }}</span>
           <span class="savings-amount">-{{ formatPrice(getTotalSavings()) }}</span>
         </div>
         <div class="summary-row total">
-          <span>实付金额:</span>
+          <span>{{ 'pricing.cart.total' | translate }}</span>
           <span class="total-amount">{{ formatPrice(getTotalPrice()) }}</span>
         </div>
       </div>
       
       <div class="cart-actions">
         <button class="checkout-btn" (click)="proceedToCheckout()">
-          立即购买 ({{ selectedItems.length }}项)
+          {{ 'pricing.cart.buyNow' | translate }} ({{ selectedItems.length }}{{ 'pricing.cart.items' | translate }})
         </button>
       </div>
     </section>
@@ -119,7 +119,7 @@
   @if (isCheckoutVisible) {
     <div class="checkout-modal">
       <div class="checkout-content">
-        <h3>确认订单</h3>
+        <h3>{{ 'pricing.checkout.title' | translate }}</h3>
         <div class="order-summary">
           @for (purchase of selectedItems; track purchase.item.id) {
             <div class="order-item">
@@ -128,12 +128,12 @@
             </div>
           }
           <div class="order-total">
-            <strong>总计: {{ formatPrice(getTotalPrice()) }}</strong>
+            <strong>{{ 'pricing.checkout.total' | translate }}: {{ formatPrice(getTotalPrice()) }}</strong>
           </div>
         </div>
         <div class="checkout-actions">
-          <button class="cancel-btn" (click)="proceedToCheckout()">取消</button>
-          <button class="confirm-btn" (click)="confirmPurchase()">确认购买</button>
+          <button class="cancel-btn" (click)="proceedToCheckout()">{{ 'pricing.checkout.cancel' | translate }}</button>
+          <button class="confirm-btn" (click)="confirmPurchase()">{{ 'pricing.checkout.confirm' | translate }}</button>
         </div>
       </div>
     </div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻译测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .lang-button { margin: 5px; padding: 10px 15px; cursor: pointer; }
+        .active { background-color: #007bff; color: white; }
+    </style>
+</head>
+<body>
+    <h1>翻译功能测试</h1>
+    
+    <div class="test-section">
+        <h3>语言选择</h3>
+        <button class="lang-button" onclick="testLang('zh')">中文</button>
+        <button class="lang-button" onclick="testLang('ja')">日本語</button>
+        <button class="lang-button" onclick="testLang('en')">English</button>
+    </div>
+
+    <div class="test-section">
+        <h3>翻译内容测试</h3>
+        <div id="test-results"></div>
+    </div>
+
+    <script>
+        const translations = {
+            zh: {
+                "app.title": "滑雪场预订系统",
+                "navigation.resorts.label": "滑雪场列表",
+                "navigation.resorts.description": "各滑雪场的信息",
+                "navigation.pricing.label": "价格表",
+                "navigation.pricing.description": "各滑雪场的价格表",
+                "navigation.history.label": "订单历史",
+                "navigation.history.description": "购买历史确认",
+                "app.footer.description": "日本滑雪场信息·价格表·预订管理平台"
+            },
+            ja: {
+                "app.title": "スキー場予約システム",
+                "navigation.resorts.label": "スキー場一覧",
+                "navigation.resorts.description": "各スキー場の情報",
+                "navigation.pricing.label": "料金表",
+                "navigation.pricing.description": "各スキー場の料金表",
+                "navigation.history.label": "注文履歴",
+                "navigation.history.description": "購入履歴の確認",
+                "app.footer.description": "日本のスキー場情報・料金表・予約管理プラットフォーム"
+            },
+            en: {
+                "app.title": "Ski Resort Booking System",
+                "navigation.resorts.label": "Ski Resorts",
+                "navigation.resorts.description": "Information about each ski resort",
+                "navigation.pricing.label": "Pricing",
+                "navigation.pricing.description": "Pricing tables for each ski resort",
+                "navigation.history.label": "Order History",
+                "navigation.history.description": "View purchase history",
+                "app.footer.description": "Japan ski resort information · pricing · booking management platform"
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function testLang(lang) {
+            currentLang = lang;
+            updateButtons();
+            showTranslations();
+        }
+
+        function updateButtons() {
+            document.querySelectorAll('.lang-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function showTranslations() {
+            const results = document.getElementById('test-results');
+            const langTranslations = translations[currentLang];
+            
+            let html = '<h4>当前语言: ' + (currentLang === 'zh' ? '中文' : currentLang === 'ja' ? '日本語' : 'English') + '</h4>';
+            
+            for (const [key, value] of Object.entries(langTranslations)) {
+                html += `<p><strong>${key}</strong>: ${value}</p>`;
+            }
+            
+            results.innerHTML = html;
+        }
+
+        // 初始显示
+        showTranslations();
+    </script>
+</body>
+</html>
