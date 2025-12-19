@@ -18,29 +18,29 @@
     
     <div class="dialog-details">
       <div class="detail-item">
-        <h3>雪场特色</h3>
+        <h3>スキー場の特徴</h3>
         <p>{{ data.features || '优质雪道，适合各种水平的滑雪爱好者' }}</p>
       </div>
       
       <div class="detail-item">
-        <h3>最佳季节</h3>
+        <h3>おすすめの時期</h3>
         <p>{{ data.season || '12月 - 3月，雪质最佳时期' }}</p>
       </div>
       
       <div class="detail-item">
-        <h3>交通方式</h3>
+        <h3>アクセス方法</h3>
         <p>{{ data.transportation || '建议自驾或乘坐公共交通前往' }}</p>
       </div>
       
       <div class="detail-item">
-        <h3>难度等级</h3>
+        <h3>難易度レベル</h3>
         <p>{{ data.difficulty || '初级 30% | 中级 50% | 高级 20%' }}</p>
       </div>
     </div>
   </div>
   
   <div class="dialog-actions">
-    <button class="action-btn primary" (click)="openOfficialSite(data.url)">官方网站</button>
-    <button class="action-btn secondary" (click)="closeDialog()">关闭</button>
+    <button class="action-btn primary" (click)="openOfficialSite(data.url)">公式サイト</button>
+    <button class="action-btn secondary" (click)="closeDialog()">閉じる</button>
   </div>
 </div>
