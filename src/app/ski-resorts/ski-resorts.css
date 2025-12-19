@@ -95,6 +95,7 @@
 }
 
 .resort-description {
+  height: 30px;
   margin: 0 0 16px 0;
   font-size: 15px;
   line-height: 1.5;

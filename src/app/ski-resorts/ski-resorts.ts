@@ -72,7 +72,7 @@ onImageError(event: any) {
     location: '新潟県',
     description: '日本最大級のスキー場で、設備が充実',
     image: 'https://www.princehotels.co.jp/ski/naeba/images/top_230927main02_2000x910.jpg',
-    url: 'https://www.princehotels.com/en/ski/naeba/',
+    url: 'https://www.princehotels.co.jp/ski/naeba/winter/',
     features: 'かぐらスキー場と連結。FISアルペンスキーワールドカップ開催実績あり',
     season: '11月下旬〜5月上旬（国内でも屈指のロングシーズン）',
     transportation: '上越新幹線 越後湯沢駅から無料シャトルバス／車で約3時間',
