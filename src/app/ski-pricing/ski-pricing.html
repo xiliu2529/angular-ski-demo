@@ -22,13 +22,15 @@
       </thead>
       <tbody>
         @for (item of priceData; track item.id) {
-          <tr class="price-row" [class.selected]="isSelected(item.id)">
-            <td class="select-col">
+          <tr class="price-row" [class.selected]="isSelected(item.id)" [class.selected]="isSelected(item.id)"
+             (click)="toggleSelection(item)">
+            <td class="select-col" >
               <input 
-                type="checkbox" 
-                [checked]="isSelected(item.id)"
-                (change)="toggleSelection(item)"
-                class="select-checkbox"
+                type="checkbox"
+  class="select-checkbox"
+  [checked]="isSelected(item.id)"
+  (click)="$event.stopPropagation()"
+  (change)="toggleSelection(item)"
               />
             </td>
             <td class="resort-col">
