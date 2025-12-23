@@ -138,6 +138,7 @@ margin-bottom: 10px;
   line-height: 1.3;       /* ⭐ 必须 */
   padding: 3px 0;         /* ⭐ 关键 */
 
+  /* 日间模式使用实色文字，夜间模式使用渐变 */
   background: var(--gradient-secondary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -146,6 +147,32 @@ margin-bottom: 10px;
   transition: all 0.3s ease;
 
   display: inline-block;  /* ⭐ 防止被 flex 裁 */
+  
+  /* 日间模式后备颜色 */
+  color: var(--text-primary);
+}
+
+/* 确保日间模式标题始终可见 */
+:host-context(:not(.dark-theme)) .app-title {
+  color: var(--text-primary);
+  -webkit-text-fill-color: var(--text-primary);
+  background: none;
+  filter: none;
+}
+
+/* 夜间模式使用实色文字 + 发光效果 */
+:host-context(.dark-theme) .app-title {
+  color: var(--text-primary);
+  -webkit-text-fill-color: var(--text-primary);
+  background: none;
+  filter: drop-shadow(0 0 20px var(--accent-color));
+  text-shadow: 0 0 10px var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+:host-context(.dark-theme) .app-title:hover {
+  filter: drop-shadow(0 0 30px var(--accent-color));
+  text-shadow: 0 0 15px var(--accent-color);
 }
 
 .app-title:hover {
@@ -177,7 +204,7 @@ margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 20px var(--shadow-light);
-    border: 1px solid var(--button-border);
+    border: 2px solid var(--button-border);
     min-width: 200px;
     position: relative;
     overflow: hidden;

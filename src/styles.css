@@ -3,7 +3,7 @@ You can add global styles to this file, and also import other style files
 /* 主题 CSS 变量定义 - 日间模式 */
 :root {
   /* 背景 */
-  --bg-primary: #f4f6f8;
+  --bg-primary: #5590cb;
   --bg-secondary: #ffffff;
   --bg-tertiary: #eef1f4;
 
@@ -40,9 +40,9 @@ You can add global styles to this file, and also import other style files
 
   /* 按钮 / 头部 */
   --button-bg: #ffffff;
-  --button-border: #e5e7eb;
+  --button-border: #d1d5db;
   --button-hover: #f9fafb;
-  --header-bg: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.9);
 
   /* 圆角 */
   --border-radius: 12px;
@@ -55,7 +55,7 @@ You can add global styles to this file, and also import other style files
 /* 夜间模式 - 深邃优雅配色 */
 .dark-theme {
   /* 背景 */
-  --bg-primary: #0b1220;
+  --bg-primary: #2a61cf;
   --bg-secondary: #111827;
   --bg-tertiary: #1f2937;
 
@@ -91,10 +91,10 @@ You can add global styles to this file, and also import other style files
   --gradient-hover: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
 
   /* 按钮 / 头部 */
-  --button-bg: #111827;
-  --button-border: #1f2937;
-  --button-hover: #1f2937;
-  --header-bg: #0b1220;
+  --button-bg: #1e293b;
+  --button-border: #475569;
+  --button-hover: #334155;
+  --header-bg: rgba(30, 41, 59, 0.95);
 }
 
 /* 主题特定效果 */
