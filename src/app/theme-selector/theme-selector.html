@@ -1,0 +1,35 @@
+<!-- 主题选择器 -->
+<div class="theme-selector" appClickOutside (clickOutside)="closeDropdown()">
+  <!-- 主题切换按钮 -->
+  <button 
+    class="theme-toggle-btn"
+    (click)="toggleDropdown()"
+    [attr.aria-label]="getCurrentThemeName()"
+    [title]="getCurrentThemeName()"
+  >
+    <span class="theme-icon">{{ getCurrentThemeIcon() }}</span>
+    <span class="theme-text">{{ getCurrentThemeName() }}</span>
+    <span class="dropdown-arrow" [class.open]="isOpen">▼</span>
+  </button>
+
+  <!-- 主题选项下拉菜单 -->
+  <div class="theme-dropdown" [class.open]="isOpen">
+    <div class="theme-list">
+      <div 
+        *ngFor="let theme of themes | keyvalue; trackBy: trackByThemeFn"
+        class="theme-option"
+        [class.active]="currentTheme === theme.key"
+        (click)="selectTheme(theme.key)"
+      >
+        <div class="theme-option-content">
+          <span class="theme-option-icon">{{ theme.value.icon }}</span>
+          <div class="theme-option-info">
+            <span class="theme-option-name">{{ getThemeDisplayName(theme.key) }}</span>
+            <span class="theme-option-description">{{ getThemeDescription(theme.key) }}</span>
+          </div>
+        </div>
+        <div *ngIf="currentTheme === theme.key" class="theme-option-check">✓</div>
+      </div>
+    </div>
+  </div>
+</div>

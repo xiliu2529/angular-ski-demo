@@ -135,6 +135,20 @@ export class I18nService {
         "save": "保存",
         "delete": "删除",
         "edit": "编辑"
+      },
+      "theme": {
+        "light": {
+          "label": "浅色主题",
+          "description": "明亮的界面主题"
+        },
+        "dark": {
+          "label": "深色主题", 
+          "description": "暗黑的界面主题"
+        },
+        "auto": {
+          "label": "自动主题",
+          "description": "跟随系统设置"
+        }
       }
     },
     en: {
@@ -259,6 +273,20 @@ export class I18nService {
         "save": "Save",
         "delete": "Delete",
         "edit": "Edit"
+      },
+      "theme": {
+        "light": {
+          "label": "Light Theme",
+          "description": "Bright interface theme"
+        },
+        "dark": {
+          "label": "Dark Theme",
+          "description": "Dark interface theme"
+        },
+        "auto": {
+          "label": "Auto Theme",
+          "description": "Follow system settings"
+        }
       }
     },
     ja: {
@@ -383,6 +411,20 @@ export class I18nService {
         "save": "保存",
         "delete": "削除",
         "edit": "編集"
+      },
+      "theme": {
+        "light": {
+          "label": "ライトテーマ",
+          "description": "明るいインターフェーステーマ"
+        },
+        "dark": {
+          "label": "ダークテーマ",
+          "description": "暗いインターフェーステーマ"
+        },
+        "auto": {
+          "label": "自動テーマ",
+          "description": "システム設定に従う"
+        }
       }
     }
   });

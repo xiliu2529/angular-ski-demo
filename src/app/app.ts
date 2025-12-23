@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TranslatePipe } from './pipes/translate.pipe';
 import { LanguageSelector } from './language-selector/language-selector';
+import { ThemeSelector } from './theme-selector/theme-selector';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, TranslatePipe, LanguageSelector],
+  imports: [RouterOutlet, CommonModule, TranslatePipe, LanguageSelector, ThemeSelector],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
