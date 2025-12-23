@@ -9,13 +9,13 @@
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: white;
-  border: 2px solid #e1e8ed;
+  background: rgb(61, 53, 53);
+  border: 2px solid #618ba9;
   border-radius: 25px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  color: #2c3e50;
+  color: #547699;
   transition: all 0.3s ease;
   min-width: 120px;
   justify-content: space-between;
