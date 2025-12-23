@@ -9,28 +9,48 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  padding: 10px 16px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  color: #2c3e50;
-  transition: all 0.3s ease;
-  min-width: 120px;
+  color: var(--text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 140px;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-soft);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .theme-toggle-btn:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: #667eea;
-  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
-  transform: translateY(-1px);
+  border-color: var(--accent-color);
+  box-shadow: 0 8px 25px var(--shadow-medium);
+  transform: translateY(-2px);
+}
+
+.theme-toggle-btn:hover::before {
+  opacity: 0.5;
 }
 
 .theme-toggle-btn:active {
   transform: translateY(0);
+  box-shadow: 0 4px 12px var(--shadow-light);
 }
 
 .theme-icon {
@@ -44,6 +64,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  position: relative;
+  z-index: 1;
 }
 
 .dropdown-arrow {
@@ -61,23 +83,24 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius);
+  box-shadow: 0 20px 40px var(--shadow-strong);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+  transform: translateY(-10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1001;
-  min-width: 200px;
-  max-width: 280px;
+  min-width: 220px;
+  max-width: 300px;
 }
 
 .theme-dropdown.open {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* 主题列表 */
@@ -92,12 +115,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
-  border-radius: 6px;
+  padding: 14px 16px;
+  border-radius: var(--border-radius-sm);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid transparent;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-soft);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .theme-option:last-child {
@@ -105,13 +143,23 @@
 }
 
 .theme-option:hover {
-  background: rgba(102, 126, 234, 0.1);
-  border-color: rgba(102, 126, 234, 0.3);
+  background: var(--accent-light);
+  border-color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.theme-option:hover::before {
+  opacity: 0.3;
 }
 
 .theme-option.active {
-  background: rgba(102, 126, 234, 0.15);
-  border-color: #667eea;
+  background: var(--accent-light);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.theme-option.active::before {
+  opacity: 0.5;
 }
 
 .theme-option-content {
@@ -130,9 +178,11 @@
 .theme-option-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
   flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .theme-option-name {
@@ -154,43 +204,34 @@
 }
 
 .theme-option-check {
-  color: #667eea;
-  font-size: 16px;
+  color: var(--accent-color);
+  font-size: 18px;
   font-weight: bold;
   flex-shrink: 0;
+  background: var(--bg-glass);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent-color);
 }
 
-/* 深色主题适配 */
-:host-context(.dark-theme) .theme-toggle-btn {
-  background: rgba(44, 62, 80, 0.9);
-  border-color: #546e7a;
-  color: #ecf0f1;
+/* 现代动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-:host-context(.dark-theme) .theme-toggle-btn:hover {
-  background: rgba(44, 62, 80, 1);
-  border-color: #667eea;
-}
-
-:host-context(.dark-theme) .theme-dropdown {
-  background: #34495e;
-  border-color: #546e7a;
-}
-
-:host-context(.dark-theme) .theme-option:hover {
-  background: rgba(102, 126, 234, 0.2);
-}
-
-:host-context(.dark-theme) .theme-option.active {
-  background: rgba(102, 126, 234, 0.25);
-}
-
-:host-context(.dark-theme) .theme-option-name {
-  color: #ecf0f1;
-}
-
-:host-context(.dark-theme) .theme-option-description {
-  color: #bdc3c7;
+.theme-list {
+  animation: fadeInUp 0.3s ease;
 }
 
 /* 响应式设计 */
