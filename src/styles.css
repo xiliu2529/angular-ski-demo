@@ -1,76 +1,89 @@
 You can add global styles to this file, and also import other style files
 
-/* 主题 CSS 变量定义 */
+/* 主题 CSS 变量定义 - 日间模式 */
 :root {
-  /* 浅色主题变量 - 现代优雅配色 */
-  --bg-primary: #fafbfc;
+  /* 日间模式 - 明亮清新配色 */
+  --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
-  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-glass: rgba(255, 255, 255, 0.8);
   --bg-glass-strong: rgba(255, 255, 255, 0.95);
-  --text-primary: #0f172a;
+  --text-primary: #1e293b;
   --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-muted: #64748b;
   --border-color: #e2e8f0;
   --border-light: #f1f5f9;
-  --shadow-light: rgba(99, 102, 241, 0.05);
-  --shadow-medium: rgba(99, 102, 241, 0.1);
-  --shadow-strong: rgba(99, 102, 241, 0.15);
-  --shadow-glow: rgba(99, 102, 241, 0.25);
-  --accent-color: #6366f1;
-  --accent-hover: #4f46e5;
-  --accent-light: rgba(99, 102, 241, 0.08);
-  --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #a855f7 100%);
-  --gradient-secondary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  --gradient-soft: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  --gradient-hover: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --shadow-light: rgba(0, 0, 0, 0.08);
+  --shadow-medium: rgba(0, 0, 0, 0.12);
+  --shadow-strong: rgba(0, 0, 0, 0.2);
+  --shadow-glow: rgba(59, 130, 246, 0.15);
+  --accent-color: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-light: rgba(59, 130, 246, 0.08);
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  --gradient-primary: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+  --gradient-secondary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --gradient-soft: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --gradient-hover: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --button-bg: #ffffff;
+  --button-border: #d1d5db;
+  --button-hover: #f9fafb;
+  --header-bg: rgba(255, 255, 255, 0.9);
   --border-radius: 12px;
   --border-radius-sm: 8px;
   --border-radius-lg: 16px;
   --border-radius-xl: 20px;
 }
 
-/* 深色主题变量 - 高对比度深色模式 */
+/* 夜间模式 - 深邃优雅配色 */
 .dark-theme {
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #151521;
-  --bg-tertiary: #1e1b2e;
-  --bg-glass: rgba(21, 21, 33, 0.9);
-  --bg-glass-strong: rgba(21, 21, 33, 0.95);
+  /* 夜间模式变量 */
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --bg-glass: rgba(30, 41, 59, 0.8);
+  --bg-glass-strong: rgba(30, 41, 59, 0.95);
   --text-primary: #f8fafc;
   --text-secondary: #e2e8f0;
   --text-muted: #94a3b8;
-  --border-color: #334155;
-  --border-light: #1e293b;
-  --shadow-light: rgba(0, 0, 0, 0.5);
-  --shadow-medium: rgba(0, 0, 0, 0.7);
-  --shadow-strong: rgba(0, 0, 0, 0.9);
-  --shadow-glow: rgba(129, 140, 248, 0.3);
-  --accent-color: #818cf8;
-  --accent-hover: #6366f1;
-  --accent-light: rgba(129, 140, 248, 0.15);
-  --accent-gradient: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-  --gradient-primary: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
-  --gradient-secondary: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%);
-  --gradient-soft: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-  --gradient-hover: linear-gradient(135deg, #6366f1 0%, #a78bfa 100%);
+  --border-color: #475569;
+  --border-light: #334155;
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-medium: rgba(0, 0, 0, 0.5);
+  --shadow-strong: rgba(0, 0, 0, 0.8);
+  --shadow-glow: rgba(139, 92, 246, 0.4);
+  --accent-color: #8b5cf6;
+  --accent-hover: #7c3aed;
+  --accent-light: rgba(139, 92, 246, 0.15);
+  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --gradient-primary: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #6d28d9 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --gradient-soft: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+  --gradient-hover: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+  --button-bg: #1e293b;
+  --button-border: #475569;
+  --button-hover: #334155;
+  --header-bg: rgba(30, 41, 59, 0.95);
 }
 
-/* 深色主题特殊效果 */
+/* 主题特定效果 */
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
 .dark-theme .app-container::before {
-  background: radial-gradient(circle at 20% 50%, rgba(129, 140, 248, 0.2) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(192, 132, 252, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 40% 20%, rgba(244, 114, 182, 0.1) 0%, transparent 50%);
-}
-
-/* 深色主题文本发光效果 */
-.dark-theme .app-title {
-  filter: drop-shadow(0 0 20px rgba(129, 140, 248, 0.5));
-}
-
-.dark-theme .app-title:hover {
-  filter: drop-shadow(0 0 30px rgba(129, 140, 248, 0.7));
+  background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
 }
 
 /* 自动主题将根据系统设置应用相应变量 */

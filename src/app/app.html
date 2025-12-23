@@ -92,12 +92,10 @@
 
   /* 头部导航样式 */
   .app-header {
-    background: var(--bg-glass-strong);
+    background: var(--header-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 8px 32px var(--shadow-light), 
-                0 1px 0 var(--border-color),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px var(--shadow-light);
     border-bottom: 1px solid var(--border-color);
     padding: 0;
     position: sticky;
@@ -171,13 +169,15 @@ margin-bottom: 10px;
   }
 
   .nav-item {
-    background: var(--bg-primary);
+    background: var(--button-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: var(--border-radius);
     padding: 18px 24px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 20px var(--shadow-light);
-    border: 2px solid var(--border-light);
+    border: 1px solid var(--button-border);
     min-width: 200px;
     position: relative;
     overflow: hidden;
@@ -190,9 +190,9 @@ margin-bottom: 10px;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: var(--gradient-soft);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
     transition: left 0.3s ease;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 
   .nav-item:hover::before {
@@ -201,8 +201,9 @@ margin-bottom: 10px;
 
   .nav-item:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px var(--shadow-strong);
-    border-color: var(--accent-color);
+    box-shadow: 0 20px 40px var(--shadow-medium);
+    border: 1px solid var(--accent-color);
+    background: var(--button-hover);
   }
 
   .nav-item:active {
@@ -261,10 +262,7 @@ margin-bottom: 10px;
     line-height: 1.5;
   }
 
-  /* 深色主题适配 */
-  :host-context(.dark-theme) .app-header {
-    background: var(--bg-glass);
-  }
+  /* 主题切换自动生效，无需额外适配 */
 
   /* 美化滚动条 */
   ::-webkit-scrollbar {
