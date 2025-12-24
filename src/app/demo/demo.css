@@ -1,0 +1,17 @@
+.demo-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* 不同组件组之间的间距 */
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px; /* 同一行组件之间的间距 */
+}
+
+/* 表单控件统一宽度，看起来像后台系统 */
+mat-form-field {
+  width: 280px;
+}

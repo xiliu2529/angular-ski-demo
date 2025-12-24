@@ -1,0 +1,98 @@
+<div class="demo-layout">
+
+  <!-- 按钮组 -->
+  <div class="row">
+    <div class="label">操作按钮</div>
+    <div class="content">
+      <button mat-button>普通按钮</button>
+      <button mat-raised-button color="primary">主要</button>
+      <button mat-stroked-button color="accent">次要</button>
+      <button mat-flat-button color="warn">删除</button>
+      <button mat-icon-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- 图标 -->
+  <div class="row">
+    <div class="label">图标示例</div>
+    <div class="content">
+      <mat-icon>search</mat-icon>
+      <mat-icon color="primary">edit</mat-icon>
+      <mat-icon color="warn">delete</mat-icon>
+    </div>
+  </div>
+
+  <!-- 输入框 -->
+  <div class="row">
+    <div class="label">城市名称</div>
+    <div class="content">
+      <mat-form-field appearance="outline">
+        <mat-label>城市名称</mat-label>
+        <input matInput placeholder="请输入城市">
+      </mat-form-field>
+      <div class="hint">用于查询对应城市的天气信息</div>
+    </div>
+  </div>
+
+  <!-- 下拉框 -->
+  <div class="row">
+    <div class="label">天气类型</div>
+    <div class="content">
+      <mat-form-field appearance="outline">
+        <mat-label>天气类型</mat-label>
+        <mat-select>
+          <mat-option value="sunny">晴天</mat-option>
+          <mat-option value="rain">雨天</mat-option>
+          <mat-option value="snow">雪天</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="hint">用于筛选天气类别</div>
+    </div>
+  </div>
+
+  <!-- Checkbox -->
+  <div class="row">
+    <div class="label">显示选项</div>
+    <div class="content">
+      <mat-checkbox>显示湿度</mat-checkbox>
+      <mat-checkbox>显示风速</mat-checkbox>
+    </div>
+  </div>
+
+  <!-- Radio -->
+  <div class="row">
+    <div class="label">时间段</div>
+    <div class="content">
+      <mat-radio-group>
+        <mat-radio-button value="day">白天</mat-radio-button>
+        <mat-radio-button value="night">夜晚</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+
+  <!-- Toggle -->
+  <div class="row">
+    <div class="label">通知设置</div>
+    <div class="content">
+      <mat-slide-toggle>开启通知</mat-slide-toggle>
+      <div class="hint">开启后将推送天气变化提醒</div>
+    </div>
+  </div>
+
+  <!-- Date -->
+  <div class="row">
+    <div class="label">查询日期</div>
+    <div class="content">
+      <mat-form-field appearance="outline">
+        <mat-label>选择日期</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="hint">默认查询当天天气</div>
+    </div>
+  </div>
+
+</div>
